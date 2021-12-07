@@ -1,0 +1,61 @@
+.button1 {
+  color: blue;
+  border: 1px solid green;
+}
+.button2 {
+  color: blue;
+  border: 1px solid green;
+}
+/* One heck of a block
+ * style comment! */
+@media (min-width: 768px) {
+  .element {
+    font-size: 1.2rem;
+  }
+}
+.header {
+  color: red;
+  font-size: 14px;
+  background-color: yellow;
+  margin: "Hello, Earth!";
+}
+.header-sub {
+  color: red;
+  margin-bottom: 10px;
+  margin-top: 20px;
+  padding-bottom: 10px;
+}
+.footer p {
+  margin-top: 10px;
+}
+.footer p a {
+  text-decoration: none;
+}
+.footer .footer-sub {
+  color: red;
+}
+.footer:hover {
+  color: green;
+}
+.footer:visited {
+  color: yellow;
+}
+#header a {
+  color: orange;
+  display: block;
+  border: 1px solid black;
+  background-color: grey;
+}
+#header a:hover {
+  background-color: white;
+}
+.button {
+  color: blue;
+  border: 1px solid green;
+}
+#page #header {
+  color: white;
+}
+#page1 #header {
+  color: white;
+}

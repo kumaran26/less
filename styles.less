@@ -1,0 +1,116 @@
+@import "external"; // library.less
+//@import "typo.css";
+
+@theme: red;
+@default-font: 12px;
+
+// numbers are converted into the same units
+@conversion-1: 5cm + 10mm; // result is 6cm
+@conversion-2: 2 - 3cm - 5mm; // result is -1.5cm
+
+// conversion is impossible
+@incompatible-units: 2 + 5px - 3cm; // result is 4px
+
+@base: 2cm * 3mm; // result is 6cm
+
+//@var1: 50vh/2;
+//width: calc(50% + (@var1 - 20px));  // result is calc(50% + (25vh - 20px))
+
+/* One heck of a block
+ * style comment! */
+
+ // Get in line!
+
+ @min768: ~"(min-width: 768px)";
+.element {
+  @media @min768 {
+    font-size: 1.2rem;
+  }
+}
+
+.margin-mixin(@top: 10px) {
+	margin-bottom: 10px;
+	margin-top: @top;
+}
+
+.padding-mixin() {
+	padding-bottom: 10px;
+}
+
+.header{
+	color: @theme;
+	font-size: @default-font + 2px;
+	background-color: @base-color;
+	margin: replace("Hello, Mars?", "Mars\?", "Earth!");
+}
+.header-sub{
+	color: @theme;
+	.margin-mixin(20px);
+	.padding-mixin;
+}
+.footer{
+	p{
+		margin-top: 10px;
+		a{
+			text-decoration: none;
+		}
+	}
+	.footer-sub{
+		color: @theme
+	}
+	&:hover{
+		color: green;
+	}
+	&:visited{
+		color: yellow;
+	}
+}
+
+
+#bundle() {
+  .button {
+    display: block;
+    border: 1px solid black;
+    background-color: grey;
+    &:hover {
+      background-color: white;
+    }
+  }
+  p{
+	margin-top: 10px;
+	}
+}
+
+#header a {
+  color: orange;
+  #bundle.button();  // can also be written as #bundle > .button
+}
+
+
+#colors() {
+  primary: blue;
+  secondary: green;
+}
+
+.button {
+  color: #colors[primary];
+  border: 1px solid #colors[secondary];
+}
+
+@var: red;
+
+#page {
+  @var: white;
+  #header {
+    color: @var; // white
+  }
+}
+
+@var1: red;
+
+#page1 {
+  #header {
+    color: @var1; // white
+  }
+  @var1: white;
+}
